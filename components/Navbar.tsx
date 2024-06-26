@@ -18,7 +18,7 @@ export const Navbar =() =>{
     <div className="flex items-center justify-between w-full bg-secondary border-b border-primary/10 h-16 pt-2 pb-2 px-4">
   <div className="flex items-center">
     <MobileSidebar/>
-    <Menu className="block md:hidden" />
+    {/* <Menu className="block md:hidden" /> */}
     <Link href={'/'}>
       <h1 className={cn(
         "text-xl md:text-2xl font-bold text-primary hidden md:block", // Default ClassName
