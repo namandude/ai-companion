@@ -29,7 +29,7 @@ export const Navbar =() =>{
   <div className="flex items-center gap-x-3">
     <Button className="ml-auto " size="sm" variant="premium">Upgrade <Sparkles /></Button>
     <ModeToggle></ModeToggle>
-    <UserButton />
+    <UserButton  afterSignOutUrl="/" />
   </div>
 </div>
 

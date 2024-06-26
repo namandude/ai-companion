@@ -1,5 +1,5 @@
 import { Companion } from '@prisma/client';
-import { currentUser } from "@clerk/nextjs/server";
+import { auth ,currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import prismadb from '@/lib/prismadb';
 
@@ -44,3 +44,35 @@ return NextResponse.json(companion);
   }
   
 }
+
+
+export async function DELETE(req: Request,
+  {params}:{params:{companionId:string}}
+){
+  try{
+      
+      const {userId}= auth();
+
+      
+      if(!userId){
+          return new NextResponse("Unauthorized",{status:401});
+      }
+     
+
+      //todo: check subs
+
+      const companion= await prismadb.companion.delete({
+          where :{
+              userId,
+              id: params.companionId,
+          }
+      });
+
+      return NextResponse.json(companion);
+
+  } catch(error){
+      console.log("[COMPANION_DELETE]", error);
+      return new NextResponse("Internal Error", {status:500});
+  }
+}
+

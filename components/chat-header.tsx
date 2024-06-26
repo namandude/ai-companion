@@ -2,13 +2,13 @@
 import { Companion,Message } from "@prisma/client";
 import { ChevronLeft, Edit, MessageSquare, MoreVertical, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Button } from "./button";
+import { Button } from "./ui/button";
 import BotAvatar from "./bot-avatar";
 import { useUser } from "@clerk/nextjs";
 import { toast, useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 interface ChatHeaderProps{
   companion :Companion &{
     messages : Message[];
